@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Iniciar sesión</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" form>
+      <div validar>
+        <mat-form-field>
+          <mat-label>Nombre de usuario</mat-label>
+          <input
+            matInput
+            formControlName="username"
+            required
+            [validacionInicial]="false"
+            autocomplete="current-username"
+            minlength="4"
+          />
+        </mat-form-field>
+      </div>
+      <div validar>
+        <mat-form-field>
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            required
+            [validacionInicial]="false"
+            autocomplete="current-password"
+            minlength="9"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button type="submit">Iniciar sesión</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

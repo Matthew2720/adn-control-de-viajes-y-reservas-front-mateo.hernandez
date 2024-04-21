@@ -1,0 +1,31 @@
+<mat-card-subtitle> ¿Donde vas a hospedarte hoy? </mat-card-subtitle>
+<app-form-busqueda-hotel
+  (busqueda)="onBusqueda($event)"
+></app-form-busqueda-hotel>
+
+<div id="hoteles" *ngIf="(dataSource$ | async)?.length > 0">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let hotel of dataSource$ | async">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ hotel.nombre }} - {{ hotel.ubicacion }}
+        </mat-panel-title>
+        <mat-panel-description>
+          Costo por noche: {{ hotel.costoPorNoche }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div *ngFor="let habitacion of hotel.habitaciones">
+        <div *ngIf="habitacion.disponibilidad" class="contenedor-expansible">
+          <strong>Habitación {{ habitacion.numeroHabitacion }} disponible</strong>
+          <button mat-raised-button color="primary" (click)="onReservar(habitacion.id, hotel.id)">
+            <span>Reservar</span>
+            <mat-icon>check</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div *ngIf="(dataSource$ | async)?.length === 0">
+  No hay resultados para la búsqueda.
+</div>

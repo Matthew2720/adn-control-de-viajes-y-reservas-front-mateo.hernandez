@@ -1,0 +1,36 @@
+<div fxLayout="column" fxLayoutGap="16px" class="div-container">
+  <form [formGroup]="form" class="form-container">
+    <div>
+      <mat-form-field>
+        <mat-label>Ciudad de origen</mat-label>
+        <mat-select validar formControlName="ciudadOrigen"  [validacionInicial]="false" required>
+          <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">{{
+            ciudad
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Ciudad de destino</mat-label>
+        <mat-select validar formControlName="ciudadDestino" >
+          <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">{{
+            ciudad
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field validar>
+        <mat-label>Número de pasajeros</mat-label>
+        <input validar matInput type="number" min="1" formControlName="pasajeros"  [validacionInicial]="false" required/>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Buscar vuelos</button>
+    </div>
+  </form>
+</div>

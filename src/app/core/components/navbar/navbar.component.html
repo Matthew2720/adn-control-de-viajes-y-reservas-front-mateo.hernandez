@@ -1,0 +1,45 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [(opened)]="opened"
+    (opened)="events.push('open!')"
+    (closed)="events.push('close!')"
+    fixedInViewport="true"
+    fixedTopGap="56"
+  >
+    <div class="username" *ngIf="username">
+      <mat-icon>person</mat-icon>
+      {{username}}
+    </div>
+    <a
+      *ngFor="let route of routes"
+      (click)="sidenav.toggle()"
+      class="vertical-menu-item"
+      mat-raised-button
+      [routerLink]="route.url"
+      routerLinkActive="active"
+    >
+      {{ route.nombre | titlecase }}
+    </a>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="fill-space">
+        <button
+          class="full-width-button"
+          *ngFor="let item of items"
+          mat-button
+          [routerLink]="item.url"
+          routerLinkActive="active"
+        >
+          {{ item.nombre | titlecase }}
+        </button>
+      </div>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

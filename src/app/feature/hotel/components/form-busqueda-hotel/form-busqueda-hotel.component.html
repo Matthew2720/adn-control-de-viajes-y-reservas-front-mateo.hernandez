@@ -1,0 +1,34 @@
+<div fxLayout="column" fxLayoutGap="16px">
+  <form [formGroup]="form" class="form-container">
+    <div>
+      <mat-form-field>
+        <mat-label>Ciudad</mat-label>
+        <mat-select validar formControlName="ciudad" [validacionInicial]="false" required>
+          <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">
+            {{ciudad}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input validar matInput [min]="fechaMinima" [matDatepicker]="fechaEntradaPicker" placeholder="Fecha Entrada" formControlName="fechaEntrada"  [validacionInicial]="false" required>
+        <mat-datepicker-toggle matSuffix [for]="fechaEntradaPicker"></mat-datepicker-toggle>
+        <mat-datepicker #fechaEntradaPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input validar matInput [min]="fechaSalidaMinima" [matDatepicker]="fechaSalidaPicker" placeholder="Fecha Salida" formControlName="fechaSalida"  [validacionInicial]="false" required>
+        <mat-datepicker-toggle matSuffix [for]="fechaSalidaPicker"></mat-datepicker-toggle>
+        <mat-datepicker #fechaSalidaPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Buscar Hotel</button>
+    </div>
+
+  </form>
+</div>

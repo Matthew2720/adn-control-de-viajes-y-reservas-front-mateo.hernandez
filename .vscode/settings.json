@@ -1,0 +1,7 @@
+{
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "sonarlint.connectedMode.project": {
+        "connectionId": "https-sonar-ceiba-com-co-",
+        "projectKey": "co.com.ceiba.adn:mateo.controldeviajesreservasfront.mateo.hernandez"
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./out-tsc/app",
+    "types": [],
+    "paths": {
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@core-service/*": [
+        "src/app/core/services/*"
+      ],
+      "@home/*": [
+        "src/app/feature/home/*"
+      ],
+      "@vuelo/*": [
+        "src/app/feature/vuelo/*"
+      ],
+      "@hotel/*": [
+        "src/app/feature/hotel/*"
+      ],
+      "@producto/*": [
+        "src/app/feature/producto/*"
+      ],
+      "@cliente/*": [
+        "src/app/feature/cliente/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ]
+    }
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}
